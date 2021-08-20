@@ -4,7 +4,7 @@ This tool allows you to add HTTP response testing to your pipeline. Unit tests a
 This is a quick and simple way to send requests and test the responses.
 
 ## Install!
-To install this tool all you need to do is simply run `npm i -g @BlobDevelopment/requester-tester`
+To install this tool all you need to do is simply run `npm i -g requester-tester`
 
 Once that is done you can run `requester-tester` anywhere!
 
