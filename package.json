@@ -1,6 +1,6 @@
 {
   "name": "requester-tester",
-  "version": "1.0.",
+  "version": "1.0.0",
   "description": "Test requests and responses",
   "main": "index.js",
   "type": "module",
