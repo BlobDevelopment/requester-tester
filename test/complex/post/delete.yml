@@ -1,0 +1,39 @@
+requests:
+  success:
+    method: 'DELETE'
+    path: '/post/delete'
+    body: '{"id": 10}'
+    headers:
+      - 'Authorization: PeepoPog wow'
+    expect:
+      status: 200
+      body: '{"message": "Deleted!"}'
+
+  no-id:
+    method: 'DELETE'
+    path: '/post/delete'
+    headers:
+      - 'Authorization: PeepoPog wow'
+    expect:
+      status: 400
+      body: '{"error": "Missing ''id'' field!"}'
+
+  invalid-id:
+    method: 'DELETE'
+    path: '/post/delete'
+    body: '{"id": -1}'
+    headers:
+      - 'Authorization: PeepoPog wow'
+    expect:
+      status: 400
+      body: '{"error": "Invalid ''id'' field!"}'
+
+  post-from-another-user:
+    method: 'DELETE'
+    path: '/post/delete'
+    body: '{"id": 9}'
+    headers:
+      - 'Authorization: PeepoPog wow'
+    expect:
+      status: 401
+      body: '{"error": "This post isn''t yours! >:("}'

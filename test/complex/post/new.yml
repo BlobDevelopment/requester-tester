@@ -1,0 +1,19 @@
+requests:
+  success:
+    method: 'POST'
+    path: '/post/new'
+    body: '{"content": "Some cool blog post! PepePog wow"}'
+    headers:
+      - 'Authorization: PeepoPog wow'
+    expect:
+      status: 200
+      body: '{"message": "Posted!", "id": 10, "link": "https://blog.site/10"}'
+
+  no-content:
+    method: 'POST'
+    path: '/post/new'
+    headers:
+      - 'Authorization: PeepoPog wow'
+    expect:
+      status: 400
+      body: '{"error": "Missing ''content'' field!"}'

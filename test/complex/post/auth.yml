@@ -1,0 +1,29 @@
+requests:
+  success:
+    method: 'GET'
+    path: '/post'
+    body: '{"id": 10}'
+    headers:
+      - 'Authorization: PeepoPog wow'
+    cookies:
+      - 'abc: yaaaaaaaaaaaaaaaaaaaa'
+    expect:
+      status: 200
+
+  no-auth-header:
+    method: 'GET'
+    path: '/post'
+    body: '{"id": 10}'
+    expect:
+      status: 401
+      body: '{"error": "Not authenticated"}'
+
+  invalid-auth-header:
+    method: 'GET'
+    path: '/post'
+    body: '{"id": 9}'
+    headers:
+      - 'Authorization: PeepoPog'
+    expect:
+      status: 401
+      body: '{"error": "This post isn''t yours! >:("}'

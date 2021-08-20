@@ -1,0 +1,20 @@
+{
+  "name": "requester-tester",
+  "version": "1.0.0",
+  "description": "Test requests and responses",
+  "main": "index.js",
+  "type": "module",
+  "author": "Blob Development",
+  "license": "MIT",
+  "bin": {
+    "requester-tester": "src/index.js"
+  },
+  "scripts": {
+    "test": "node src/index.js https://requester-tester.walshydev.workers.dev test"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "js-yaml": "^4.1.0",
+    "node-fetch": "^2.6.1"
+  }
+}

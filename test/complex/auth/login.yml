@@ -1,0 +1,42 @@
+requests:
+  success:
+    method: 'POST'
+    path: '/auth/login'
+    body: '{"username": "Walshy", "pin": 111111}'
+    expect:
+      status: 200
+      body: '{"message": "Success!"}'
+      cookies:
+        - 'auth: whooooo'
+
+  no-username:
+    method: 'POST'
+    path: '/auth/login'
+    body: '{"pin": 111111}'
+    expect:
+      status: 400
+      body: '{"error": "Missing ''username'' field!"}'
+
+  no-pin:
+    method: 'POST'
+    path: '/auth/login'
+    body: '{"username": "Walshy"}'
+    expect:
+      status: 400
+      body: '{"error": "Missing ''pin'' field!"}'
+
+  invalid-username:
+    method: 'POST'
+    path: '/auth/login'
+    body: '{"username": "xX_Walshy_Xx", "pin": 111111}'
+    expect:
+      status: 400
+      body: '{"error": "Invalid ''username'' field!"}'
+
+  invalid-pin:
+    method: 'POST'
+    path: '/auth/login'
+    body: '{"username": "Walshy", "pin": 1}'
+    expect:
+      status: 400
+      body: '{"error": "Invalid ''pin'' field!"}'

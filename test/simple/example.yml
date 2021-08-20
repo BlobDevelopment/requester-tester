@@ -1,0 +1,7 @@
+requests:
+  testing-123:
+    method: 'GET'
+    path: '/'
+    expect:
+      status: 200
+      body: '{"Hello": "World!"}'
